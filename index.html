@@ -40,18 +40,18 @@
 
                 <div class="d-flex">
                     <div class="input-group m-3">
-                        <span class="input-group-text" id="basic-addon1">Number</span>
+                        <span class="input-group-text" id="addon-wrapping">N°</span>
                         <input v-model="numberMails" type="number" class="form-control" placeholder="email number to generate" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
                     <button class="btn btn-primary w-100 m-3" @click="getRandomeEmail"> Get Randome Email</button>
                 </div>
 
 
-                <div v-if="!isShow" class="alert alert-primary" role="alert">
+                <div v-if="!isShow" class="alert alert-primary text-center" role="alert">
                     List is empty!
                 </div>
 
-                <div v-if="!isValid" class="alert alert-danger" role="alert">
+                <div v-if="!isValid" class="alert alert-danger text-center" role="alert">
                     Inserisci un numero superiore a 0
                   </div>
                 <ul class="list-group">
