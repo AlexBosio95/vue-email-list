@@ -32,11 +32,20 @@
 
     <div id="app">
 
-        <button class="btn btn-primary" @click="getRandomeEmail"> Get Randome Email</button>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <button class="btn btn-primary w-100 my-4" @click="getRandomeEmail"> Get Randome Email</button>
 
-        <ul>
-            <li v-if="isShow" v-for="email in emailRandome"> {{ email }} </li>
-        </ul>
+                <h3>Elenco email generate:</h3>
+                <ul class="list-group">
+                    <li v-if="isShow" v-for="email in emailRandome" class="list-group-item"> {{ email }} </li>
+                </ul>
+            </div>
+            <div class="col-3"></div>
+        </div>
+
+        
 
     </div>
 
