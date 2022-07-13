@@ -35,9 +35,25 @@
         <div class="row">
             <div class="col-3"></div>
             <div class="col-6">
-                <button class="btn btn-primary w-100 my-4" @click="getRandomeEmail"> Get Randome Email</button>
 
-                <h3>Elenco email generate:</h3>
+                <h1 class="mt-3 text-center fw-bold">Email generator</h1>
+
+                <div class="d-flex">
+                    <div class="input-group m-3">
+                        <span class="input-group-text" id="basic-addon1">Number</span>
+                        <input v-model="numberMails" type="number" class="form-control" placeholder="email number to generate" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    <button class="btn btn-primary w-100 m-3" @click="getRandomeEmail"> Get Randome Email</button>
+                </div>
+
+
+                <div v-if="!isShow" class="alert alert-primary" role="alert">
+                    List is empty!
+                </div>
+
+                <div v-if="!isValid" class="alert alert-danger" role="alert">
+                    Inserisci un numero superiore a 0
+                  </div>
                 <ul class="list-group">
                     <li v-if="isShow" v-for="email in emailRandome" class="list-group-item"> {{ email }} </li>
                 </ul>

@@ -4,29 +4,39 @@ const app = new Vue ({
     data: {
         emailRandome: [],
         isShow: false,
+        numberMails: 10,
+        isValid: true,
     },
 
     methods: {
         getRandomeEmail: function(){
 
-            const numberEmail = 9
-
             this.emailRandome = []
-
             this.isShow = false
-            
-        
-            for (let i = 0; i <= numberEmail; i++) {
-                axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-            .then((response) => {
-                const result = response.data.response
-                this.emailRandome.push(result)
+            this.isValid = true
 
-                if (numberEmail === (this.emailRandome.length + 1)) {
-                    this.isShow = true
+            if (!this.numberMails != Number){
+
+                if (this.numberMails <= 0){
+                    this.isValid = false;
+
+                } else {
+
+                    for (let i = 1; i <= this.numberMails; i++) {
+                        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+                        .then((response) => {
+                        const result = response.data.response
+                        this.emailRandome.push(result)
+    
+                        if (this.numberMails == this.emailRandome.length) {
+                            this.isShow = true
+                        }
+                    })
+    
+                    }
                 }
-            });
             }
+            
             
         }
     },
